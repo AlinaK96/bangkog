@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бангкок | День в городе</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          160deg,
+          #fff4e6 0%,
+          #ffe9d6 40%,
+          #ffd9b8 100%
+        );
+        background-attachment: fixed;
+        color: #2b1d12;
+        padding: 24px 16px;
+        line-height: 1.55;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #fffdf9;
+        border-radius: 32px;
+        box-shadow: 0 24px 70px rgba(196, 120, 60, 0.18);
+        padding: 32px 28px;
+        border: 1px solid #ffe3c9;
+      }
+
+      /* ==== ШАПКА ==== */
+      .main-title {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: #2b1d12;
+      }
+      .main-title .flag {
+        font-size: 26px;
+      }
+      .main-title span {
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 3px 16px;
+        border-radius: 40px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .subhead {
+        font-size: 15px;
+        color: #7a5c44;
+        margin-top: 10px;
+        border-left: 4px solid #ffb347;
+        padding: 8px 16px;
+        background: #fff6ec;
+        border-radius: 0 14px 14px 0;
+      }
+
+      /* ==== НАВИГАЦИЯ ==== */
+      .nav-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .nav-link {
+        display: inline-block;
+        background: #fff;
+        color: #b5651d;
+        padding: 10px 22px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        border: 2px solid #ffd9b8;
+        transition: all 0.18s ease;
+      }
+      .nav-link:hover {
+        background: #ffb347;
+        color: #fff;
+        border-color: #ffb347;
+        transform: translateY(-2px);
+      }
+
+      hr {
+        border: none;
+        border-top: 2px dashed #ffe0c4;
+        margin: 30px 0 18px 0;
+      }
+
+      .section-title {
+        font-size: 21px;
+        font-weight: 700;
+        margin: 30px 0 14px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #2b1d12;
+      }
+      .section-title .badge {
+        background: #fff0df;
+        color: #b5651d;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 14px;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      /* ==== КАРТОЧКА МЕСТА ==== */
+      .trip-card {
+        background: linear-gradient(135deg, #fff7ef 0%, #ffeeda 100%);
+        border-radius: 22px;
+        padding: 24px 26px;
+        border: 1px solid #ffe0c4;
+        box-shadow: 0 6px 24px rgba(255, 160, 80, 0.1);
+        margin-bottom: 20px;
+      }
+      .trip-card .trip-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 16px;
+        margin-bottom: 10px;
+      }
+      .trip-card .trip-head h3 {
+        font-size: 22px;
+        font-weight: 800;
+        color: #2b1d12;
+      }
+      .trip-card .trip-head .distance {
+        font-size: 13px;
+        font-weight: 700;
+        color: #ff8c42;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .trip-card .trip-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin: 10px 0 14px 0;
+        font-size: 13px;
+        color: #7a5c44;
+      }
+      .trip-card .trip-facts .fact {
+        background: #fffaf4;
+        border: 1px solid #ffe0c4;
+        border-radius: 40px;
+        padding: 3px 14px;
+        font-weight: 600;
+      }
+      .trip-card p {
+        font-size: 14px;
+        color: #4a3625;
+        margin-bottom: 10px;
+      }
+      .trip-card .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      .trip-card ul {
+        list-style: none;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+      .trip-card ul li {
+        padding: 4px 0 4px 22px;
+        position: relative;
+        color: #4a3625;
+      }
+      .trip-card ul li::before {
+        content: "🐚";
+        position: absolute;
+        left: 0;
+        font-size: 12px;
+      }
+
+      .address-box {
+        background: #fffaf4;
+        border: 1px dashed #ffd9b8;
+        border-radius: 14px;
+        padding: 10px 16px;
+        margin-top: 12px;
+        font-size: 13px;
+        color: #7a5c44;
+      }
+      .address-box strong {
+        color: #2b1d12;
+      }
+
+      /* ==== КАРТИНКИ ==== */
+      .trip-image {
+        margin: 14px 0 16px 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #ffe0c4;
+        box-shadow: 0 6px 20px rgba(255, 160, 80, 0.15);
+      }
+      .trip-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      /* ==== КАК ДОБРАТЬСЯ ==== */
+      .move-box {
+        background: #fffaf4;
+        border-radius: 16px;
+        padding: 14px 18px;
+        margin: 12px 0 6px 0;
+        border: 1px solid #ffe0c4;
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        align-items: center;
+      }
+      .move-box .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+      .move-box .dot.bts {
+        background: #6cc24a;
+      }
+      .move-box .dot.mrt {
+        background: #1e4f9c;
+      }
+      .move-box .dot.river {
+        background: #00a0e9;
+      }
+      .move-box .dot.walk {
+        background: #ff8c42;
+      }
+      .move-box .route {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .move-box .desc {
+        color: #7a5c44;
+      }
+
+      /* ==== ПРЕДУПРЕЖДЕНИЕ ==== */
+      .warn-box {
+        background: linear-gradient(135deg, #fff0df, #ffe3c9);
+        border-radius: 20px;
+        padding: 16px 22px;
+        margin: 18px 0 8px 0;
+        border-left: 6px solid #e63946;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .warn-box strong {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .warn-box .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      /* ==== СОВЕТЫ ==== */
+      .highlight-box {
+        background: linear-gradient(135deg, #fff0df, #ffe3c9);
+        border-radius: 20px;
+        padding: 16px 22px;
+        margin: 18px 0 8px 0;
+        border-left: 6px solid #ff8c42;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .highlight-box strong {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .highlight-box .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      /* ==== ЭТИКЕТ ==== */
+      .etiquette-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 14px 0 6px 0;
+      }
+      .etiquette-card {
+        background: #fffaf4;
+        border-radius: 18px;
+        padding: 16px 20px;
+        border: 1px solid #ffe0c4;
+      }
+      .etiquette-card h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #2b1d12;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .etiquette-card ul {
+        list-style: none;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .etiquette-card ul li {
+        padding: 3px 0 3px 20px;
+        position: relative;
+      }
+      .etiquette-card ul li::before {
+        content: "📍";
+        position: absolute;
+        left: 0;
+        font-size: 11px;
+      }
+
+      /* ==== ФУТЕР ==== */
+      .footer-note {
+        margin-top: 34px;
+        font-size: 14px;
+        color: #8a6a50;
+        border-top: 2px dashed #ffe0c4;
+        padding-top: 20px;
+        text-align: center;
+      }
+      .footer-note strong {
+        color: #b5651d;
+      }
+      .footer-note small {
+        display: block;
+        font-size: 13px;
+        color: #a08872;
+        margin-top: 4px;
+      }
+
+      .back-block {
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        border-radius: 24px;
+        padding: 20px 26px;
+        margin: 24px 0 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+      }
+      .back-block .back-text {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .back-block .back-text small {
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+        opacity: 0.9;
+        margin-top: 2px;
+      }
+      .back-block a {
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        border: 2px solid #fff;
+        padding: 10px 24px;
+        border-radius: 40px;
+        transition: all 0.18s ease;
+        white-space: nowrap;
+      }
+      .back-block a:hover {
+        background: #fff;
+        color: #ff8c42;
+      }
+
+      @media (max-width: 640px) {
+        .trip-card .trip-head h3 {
+          font-size: 19px;
+        }
+        .etiquette-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- ШАПКА -->
+      <div>
+        <div class="main-title">
+          <span class="flag">🏙️</span> День в городе
+          <span>Старый город + река</span>
+        </div>
+        <div class="subhead">
+          Два дня: Старый город → река → современный Бангкок
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <a href="index.html" class="nav-link">✈️ Прилёт</a>
+        <a href="bike.html" class="nav-link">🛵 Байк </a>
+        <a href="departure.html" class="nav-link">🇹🇭 Chill day</a>
+      </div>
+
+      <hr />
+
+      <!-- ДЕНЬ 1 -->
+      <div class="section-title">
+        🏛️ День 1 — Старый город (Rattanakosin)
+        <span class="badge">всё в шаговой доступности</span>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom: 16px">
+        Логика дня: начинаем с Большого дворца, пока не жарко и не толпы. Дальше
+        пешком до Ват Пхо, потом на пароме через реку к Ват Арун на закат.
+        Вечером — Каосан-роуд.
+      </div>
+
+      <!-- Большой дворец -->
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Большой дворец + Ват Пхра Кео</h3>
+          <span class="distance">Старт дня · 08:30</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">💰 500 ฿</span>
+          <span class="fact">⏰ 8:30–15:30</span>
+          <span class="fact">👗 Закрытые плечи и колени</span>
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://img.pac.ru/landmarks/372427/big/E980E2AD7F00010123ADB254D3AE4213.jpg"
+            alt="Большой дворец Бангкок"
+          />
+        </div>
+
+        <p>
+          Главная достопримечательность Бангкока и бывшая резиденция королей. На
+          территории находится <strong>Храм Изумрудного Будды</strong> — самая
+          священная статуя Таиланда, вырезанная из цельного нефрита.
+        </p>
+        <p>
+          Вход для иностранцев — <strong>500 ฿</strong>, билет включает Большой
+          дворец, Ват Пхра Кео и Музей текстиля королевы Сирикит, действует 7
+          дней]. Приходить лучше к открытию, к 10–11 уже толпы и жара.
+        </p>
+
+        <ul>
+          <li>Продажа билетов прекращается в 15:30</li>
+          <li>
+            Одежда: закрытые плечи и колени, без шорт, леггинсов и сандалий ]
+          </li>
+          <li>Не верьте «скальперам» у входа — только официальная касса ]</li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> Na Phra Lan Rd, Phra Nakhon
+        </div>
+
+        <div class="move-box">
+          <span class="dot river"></span>
+          <span class="route">До Ват Пхо — пешком</span>
+          <span class="desc">~10–15 минут вдоль улицы</span>
+        </div>
+      </div>
+
+      <!-- Ват Пхо -->
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Ват Пхо (Лежащий Будда)</h3>
+          <span class="distance">Пешком от Дворца</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">💰 300 ฿</span>
+          <span class="fact">⏰ 8:00–18:30</span>
+          <span class="fact">🛌 46 м Будда</span>
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://avatars.mds.yandex.net/i?id=801811557254fb7d8810b63a14255fc7_l-11844875-images-thumbs&n=13"
+            alt="Ват Пхо Лежащий Будда"
+          />
+        </div>
+
+        <p>
+          Один из старейших и крупнейших храмов Бангкока. Главная
+          достопримечательность —
+          <strong>46-метровая статуя Лежащего Будды</strong> с перламутровой
+          инкрустацией на ступнях. Здесь же зародилась школа традиционного
+          тайского массажа.
+        </p>
+        <p>
+          Вход — <strong>300 ฿</strong>]. Можно записаться на массаж прямо на
+          территории, но лучше уточнять время заранее.
+        </p>
+
+        <ul>
+          <li>Снимайте обувь перед входом в зал с Буддой</li>
+          <li>Не поворачивайтесь спиной к статуе для фото</li>
+          <li>Массаж — отдельная оплата, около 300–500 ฿ за час</li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> 2 Sanam Chai Rd, Phra Nakhon
+        </div>
+
+        <div class="move-box">
+          <span class="dot river"></span>
+          <span class="route">Паром → Ват Арун</span>
+          <span class="desc">от пирса Tha Tien, 4 ฿, 5 минут</span>
+        </div>
+      </div>
+
+      <!-- Ват Арун -->
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Ват Арун (Храм Рассвета)</h3>
+          <span class="distance">Паром через реку</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">💰 200 ฿</span>
+          <span class="fact">⏰ 8:00–18:00</span>
+          <span class="fact">🌅 На закате</span>
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://www.journeymag.ru/wp-content/uploads/2021/01/1907zgAJ9d0jY7.jpg"
+            alt="Ват Арун Храм Рассвета"
+          />
+        </div>
+
+        <p>
+          Один из самых узнаваемых храмов Бангкока. Центральная башня
+          <strong>~70 метров</strong>, украшенная фарфором и ракушками.
+          Находится на другом берегу реки, поэтому пешком не дойти — только
+          паром или лодка].
+        </p>
+        <p>
+          Вход — <strong>200 ฿</strong>, иностранцам выдают бутылку воды .
+          Лучшее время — закат: башня красиво подсвечивается, и с
+          противоположного берега открывается лучший вид.
+        </p>
+
+        <ul>
+          <li>Можно подняться наверх по крутой лестнице</li>
+          <li>Фото с противоположного берега — у пирса Tha Tien</li>
+          <li>Обратно — паром за 4 ฿ или лодка по каналу</li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> 158 Thanon Wang Doem, Wat Arun
+        </div>
+
+        <div class="move-box">
+          <span class="dot walk"></span>
+          <span class="route">До Каосан-роуд</span>
+          <span class="desc">Grab или тук-тук, ~10–15 минут</span>
+        </div>
+      </div>
+
+      <!-- Каосан -->
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Каосан-роуд</h3>
+          <span class="distance">Вечер</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">💰 Бесплатно</span>
+          <span class="fact">⏰ Круглосуточно</span>
+          <span class="fact">🍜 Уличная еда</span>
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://perito.media/uploads/post/image/a9bd45012d1f7701e7488d2097271e23433b6c7749b8b4afd4508b6156106e68/evan-krause-JTAR4XJ7FbA-unsplash.jpg"
+            alt="Каосан-роуд вечером"
+          />
+        </div>
+
+        <p>
+          Легендарная улица бэкпекеров, которая днём — рынок с сувенирами, а
+          ночью превращается в бар с неоновыми огнями, музыкой и уличной едой.
+          Длина всего <strong>300 метров</strong>, пройти можно за 15 минут ].
+        </p>
+        <p>
+          Здесь можно попробовать жареные насекомые, крокодила на гриле и
+          классические тайские блюда. Вход свободный, работает круглосуточно .
+        </p>
+
+        <ul>
+          <li>Вечером — толпы, но атмосфера того стоит</li>
+          <li>Можно купить дешёвые сувениры и футболки</li>
+          <li>Массажные салоны работают допоздна</li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> Talat Yot, Phra Nakhon
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- SKYFLYERS -->
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>SkyFlyers (Wings of Garudapterus)</h3>
+          <span class="distance">Asiatique · вечер</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">🎢 135 м высота</span>
+          <span class="fact">🎟️ 320 ฿</span>
+          <span class="fact">🦕 Тема динозавров</span>
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://res.klook.com/images/w_1200,h_630,c_fill,q_65/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/tdyqm1r2yxoen8vdhgbs/SkyflyersWingsofGarudapterusTicketinBangkok-Klook.jpg"
+            alt="SkyFlyers Бангкок"
+          />
+        </div>
+
+        <p>
+          Гигантские вращающиеся качели на высоте <strong>135 метров</strong>
+          (высота 36-этажного дома) — самые высокие в Азиатско-Тихоокеанском
+          регионе. Открылись в ноябре 2025 года в комплексе
+          <strong>Asiatique The Riverfront</strong>.
+        </p>
+        <p>
+          Аттракцион тематически связан с <strong>Garudapterus</strong> —
+          древним птерозавром, найденным в Таиланде. Вас поднимают на платформу,
+          где можно смотреть на город, а затем механическая рука раскручивает
+          сиденья на скорости <strong>до 70 км/ч</strong>. Полный оборот — около
+          5 минут, но вид на реку Чао Прайя и город с высоты птичьего полёта
+          того стоит.
+        </p>
+
+        <ul>
+          <li>Билет — <strong>320 ฿</strong> за один прокат</li>
+          <li>
+            Телефоны и камеры на аттракцион запрещены, но можно арендовать GoPro
+            (250 ฿)
+          </li>
+          <li>
+            Приходить лучше к <strong>17:30–18:00</strong> — поймаете закат и
+            ночные огни за один раз
+          </li>
+          <li>
+            Билеты лучше брать заранее — в выходные очередь может быть 2 часа
+          </li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> Asiatique The Riverfront, 2194 Charoen
+          Krung Rd, Wat Phraya Krai, Bang Kho Laem, Bangkok 10120
+        </div>
+
+        <div class="move-box">
+          <span class="dot river"></span>
+          <span class="route">Бесплатный паром от BTS Saphan Taksin</span>
+          <span class="desc"
+            >выход 2, пирс Sathorn, каждые 15–30 минут, 16:00–23:30</span
+          >
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- НАЗАД -->
+      <div class="back-block">
+        <div class="back-text">
+          Вернуться к прилёту
+          <small>ARL, тарифы и первый вечер</small>
+        </div>
+        <a href="index.html">← Прилёт</a>
+      </div>
+
+      <!-- ФУТЕР -->
+      <div class="footer-note">
+        <strong>🗓️ 21–24 октября · Бангкок</strong><br />
+        <small>День 1: Старый город · День 2: Река и современный центр</small>
+      </div>
+    </div>
+  </body>
+</html>

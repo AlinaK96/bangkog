@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бангкок | Байк и вылазки</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          160deg,
+          #fff4e6 0%,
+          #ffe9d6 40%,
+          #ffd9b8 100%
+        );
+        background-attachment: fixed;
+        color: #2b1d12;
+        padding: 24px 16px;
+        line-height: 1.55;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #fffdf9;
+        border-radius: 32px;
+        box-shadow: 0 24px 70px rgba(196, 120, 60, 0.18);
+        padding: 32px 28px;
+        border: 1px solid #ffe3c9;
+      }
+
+      /* ==== ШАПКА ==== */
+      .main-title {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: #2b1d12;
+      }
+      .main-title .flag {
+        font-size: 26px;
+      }
+      .main-title span {
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 3px 16px;
+        border-radius: 40px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .subhead {
+        font-size: 15px;
+        color: #7a5c44;
+        margin-top: 10px;
+        border-left: 4px solid #ffb347;
+        padding: 8px 16px;
+        background: #fff6ec;
+        border-radius: 0 14px 14px 0;
+      }
+
+      /* ==== НАВИГАЦИЯ ==== */
+      .nav-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .nav-link {
+        display: inline-block;
+        background: #fff;
+        color: #b5651d;
+        padding: 10px 22px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        border: 2px solid #ffd9b8;
+        transition: all 0.18s ease;
+      }
+      .nav-link:hover {
+        background: #ffb347;
+        color: #fff;
+        border-color: #ffb347;
+        transform: translateY(-2px);
+      }
+
+      hr {
+        border: none;
+        border-top: 2px dashed #ffe0c4;
+        margin: 30px 0 18px 0;
+      }
+
+      .section-title {
+        font-size: 21px;
+        font-weight: 700;
+        margin: 30px 0 14px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #2b1d12;
+      }
+      .section-title .badge {
+        background: #fff0df;
+        color: #b5651d;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 14px;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      /* ==== КАРТОЧКА МЕСТА ==== */
+      .trip-card {
+        background: linear-gradient(135deg, #fff7ef 0%, #ffeeda 100%);
+        border-radius: 22px;
+        padding: 24px 26px;
+        border: 1px solid #ffe0c4;
+        box-shadow: 0 6px 24px rgba(255, 160, 80, 0.1);
+        margin-bottom: 20px;
+      }
+      .trip-card .trip-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 16px;
+        margin-bottom: 10px;
+      }
+      .trip-card .trip-head h3 {
+        font-size: 22px;
+        font-weight: 800;
+        color: #2b1d12;
+      }
+      .trip-card .trip-head .distance {
+        font-size: 13px;
+        font-weight: 700;
+        color: #ff8c42;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .trip-card .trip-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin: 10px 0 14px 0;
+        font-size: 13px;
+        color: #7a5c44;
+      }
+      .trip-card .trip-facts .fact {
+        background: #fffaf4;
+        border: 1px solid #ffe0c4;
+        border-radius: 40px;
+        padding: 3px 14px;
+        font-weight: 600;
+      }
+      .trip-card p {
+        font-size: 14px;
+        color: #4a3625;
+        margin-bottom: 10px;
+      }
+      .trip-card .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      .trip-card ul {
+        list-style: none;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+      .trip-card ul li {
+        padding: 4px 0 4px 22px;
+        position: relative;
+        color: #4a3625;
+      }
+      .trip-card ul li::before {
+        content: "🐚";
+        position: absolute;
+        left: 0;
+        font-size: 12px;
+      }
+
+      /* ==== АРЕНДА БАЙКА ==== */
+      .bike-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 14px 0 6px 0;
+      }
+      .bike-card {
+        background: #fffaf4;
+        border-radius: 18px;
+        padding: 18px 20px;
+        border: 1px solid #ffe0c4;
+      }
+      .bike-card h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #2b1d12;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .bike-card p {
+        font-size: 14px;
+        color: #4a3625;
+        margin-bottom: 6px;
+      }
+      .bike-card .price-tag {
+        display: inline-block;
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 2px 12px;
+        border-radius: 40px;
+        margin-top: 4px;
+      }
+      .bike-card ul {
+        list-style: none;
+        font-size: 13px;
+        margin-top: 8px;
+      }
+      .bike-card ul li {
+        padding: 3px 0 3px 20px;
+        position: relative;
+        color: #4a3625;
+      }
+      .bike-card ul li::before {
+        content: "🛵";
+        position: absolute;
+        left: 0;
+        font-size: 11px;
+      }
+
+      .warn-box {
+        background: linear-gradient(135deg, #fff0df, #ffe3c9);
+        border-radius: 20px;
+        padding: 16px 22px;
+        margin: 18px 0 8px 0;
+        border-left: 6px solid #e63946;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .warn-box strong {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .warn-box .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      .checklist {
+        background: #fffaf4;
+        border-radius: 18px;
+        padding: 16px 22px;
+        margin: 14px 0 6px 0;
+        border: 1px solid #ffe0c4;
+      }
+      .checklist h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #2b1d12;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .checklist ol {
+        list-style: none;
+        counter-reset: bike-counter;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .checklist ol li {
+        counter-increment: bike-counter;
+        padding: 5px 0 5px 34px;
+        position: relative;
+      }
+      .checklist ol li::before {
+        content: counter(bike-counter);
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 22px;
+        height: 22px;
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 640px) {
+        .bike-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ==== КАРТИНКИ В КАРТОЧКАХ ==== */
+      .trip-image {
+        margin: 14px 0 16px 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #ffe0c4;
+        box-shadow: 0 6px 20px rgba(255, 160, 80, 0.15);
+      }
+      .trip-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .address-box {
+        background: #fffaf4;
+        border: 1px dashed #ffd9b8;
+        border-radius: 14px;
+        padding: 10px 16px;
+        margin-top: 12px;
+        font-size: 13px;
+        color: #7a5c44;
+      }
+      .address-box strong {
+        color: #2b1d12;
+      }
+
+      /* ==== ОСТАНОВКИ ПО ПУТИ ==== */
+      .stop-card {
+        background: #fffaf4;
+        border-radius: 18px;
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        border: 1px solid #ffe0c4;
+      }
+      .stop-card h4 {
+        font-size: 16px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #2b1d12;
+        margin-bottom: 6px;
+      }
+      .stop-card .stop-distance {
+        font-size: 12px;
+        font-weight: 700;
+        color: #ff8c42;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        margin-bottom: 6px;
+      }
+      .stop-card p {
+        font-size: 14px;
+        color: #4a3625;
+        margin-bottom: 8px;
+      }
+      .stop-card ul {
+        list-style: none;
+        font-size: 13px;
+        margin-top: 6px;
+      }
+      .stop-card ul li {
+        padding: 3px 0 3px 20px;
+        position: relative;
+        color: #4a3625;
+      }
+      .stop-card ul li::before {
+        content: "📍";
+        position: absolute;
+        left: 0;
+        font-size: 11px;
+      }
+      .stop-card .stop-address {
+        background: #ffffff;
+        border: 1px dashed #ffd9b8;
+        border-radius: 12px;
+        padding: 8px 14px;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #7a5c44;
+      }
+
+      /* ==== ПРЕДУПРЕЖДЕНИЕ ==== */
+      .warn-box {
+        background: linear-gradient(135deg, #fff0df, #ffe3c9);
+        border-radius: 20px;
+        padding: 16px 22px;
+        margin: 18px 0 8px 0;
+        border-left: 6px solid #e63946;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .warn-box strong {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .warn-box .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      /* ==== СОВЕТЫ ==== */
+      .highlight-box {
+        background: linear-gradient(135deg, #fff0df, #ffe3c9);
+        border-radius: 20px;
+        padding: 16px 22px;
+        margin: 18px 0 8px 0;
+        border-left: 6px solid #ff8c42;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .highlight-box strong {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .highlight-box .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      /* ==== ЧЕК-ЛИСТ ==== */
+      .checklist {
+        background: #fffaf4;
+        border-radius: 18px;
+        padding: 16px 22px;
+        margin: 14px 0 6px 0;
+        border: 1px solid #ffe0c4;
+      }
+      .checklist h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #2b1d12;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .checklist ol {
+        list-style: none;
+        counter-reset: bike-counter;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .checklist ol li {
+        counter-increment: bike-counter;
+        padding: 5px 0 5px 34px;
+        position: relative;
+      }
+      .checklist ol li::before {
+        content: counter(bike-counter);
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 22px;
+        height: 22px;
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* ==== ФУТЕР ==== */
+      .footer-note {
+        margin-top: 34px;
+        font-size: 14px;
+        color: #8a6a50;
+        border-top: 2px dashed #ffe0c4;
+        padding-top: 20px;
+        text-align: center;
+      }
+      .footer-note strong {
+        color: #b5651d;
+      }
+      .footer-note small {
+        display: block;
+        font-size: 13px;
+        color: #a08872;
+        margin-top: 4px;
+      }
+
+      .back-block {
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        border-radius: 24px;
+        padding: 20px 26px;
+        margin: 24px 0 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+      }
+      .back-block .back-text {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .back-block .back-text small {
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+        opacity: 0.9;
+        margin-top: 2px;
+      }
+      .back-block a {
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        border: 2px solid #fff;
+        padding: 10px 24px;
+        border-radius: 40px;
+        transition: all 0.18s ease;
+        white-space: nowrap;
+      }
+      .back-block a:hover {
+        background: #fff;
+        color: #ff8c42;
+      }
+
+      @media (max-width: 640px) {
+        .trip-card .trip-head h3 {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- ШАПКА -->
+      <div>
+        <div class="main-title">
+          <span class="flag">🛵</span> Байк и вылазки
+          <span>за городом</span>
+        </div>
+        <div class="subhead">
+          Маршрут: Don Wai → Wat Samphran → По пути в Аюттхаю → Аюттхая
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <a href="index.html" class="nav-link">✈️ Прилёт</a>
+        <a href="city.html" class="nav-link">🚶 День в городе</a>
+
+        <a href="departure.html" class="nav-link">🇹🇭 Chill day</a>
+      </div>
+
+      <hr />
+
+      <!-- ВСТУПЛЕНИЕ -->
+      <div class="highlight-box">
+        <strong>🛵 Байк — это свобода, но с оговорками.</strong> Все места — за
+        пределами провинции Бангкок, и это важно: не все прокаты разрешают
+        выезжать за город. Уточни у конторы заранее, до того как уедешь.
+      </div>
+
+      <hr />
+
+      <!-- АРЕНДА БАЙКА -->
+      <div class="section-title">
+        🛵 Аренда байка на улицах
+        <span class="badge">можно, но с оговорками</span>
+      </div>
+
+      <div class="bike-grid">
+        <div class="bike-card">
+          <h4>🏝️ Khao San Road</h4>
+          <p>
+            Самый массовый и доступный вариант. Стойки стоят прямо на улице,
+            байки 110–125 кубов.
+          </p>
+          <span class="price-tag">от 150–250 ฿ / день</span>
+          <ul>
+            <li>Много контор, есть из чего выбрать</li>
+            <li>Часто просят оригинал паспорта в залог</li>
+            <li>Качество байков — лотерея</li>
+          </ul>
+        </div>
+        <div class="bike-card">
+          <h4>🏙️ Sukhumvit</h4>
+          <p>
+            Более «цивилизованные» конторы с филиалами по городу. Например,
+            Fatboy's Motorbike Rentals.
+          </p>
+          <span class="price-tag">200–400 ฿ / день</span>
+          <ul>
+            <li>Обслуживание надёжнее</li>
+            <li>Чаще соглашаются на кэш-депозит</li>
+            <li>Байки новее и ухоженнее</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <strong>⚠️ Главный риск — не штраф, а страховка.</strong> Байк дадут
+        почти везде, даже без прав категории «A». Если остановит полиция — штраф
+        <span class="highlight-word">400–1,000 ฿</span> (иногда до 3,000 ฿) и
+        платить на месте. Но если случится авария — без действительного
+        мотоциклетного удостоверения (национального + IDP)
+        <span class="highlight-word">страховка не покроет ничего</span>. Лечение
+        в частной клинике Бангкока после серьёзной аварии может стоить
+        <span class="highlight-word">100,000–500,000 ฿</span>.
+      </div>
+
+      <div class="checklist">
+        <h4>📋 Если всё же решишься — чек-лист</h4>
+        <ol>
+          <li>
+            <strong>Ищи прокат с денежным залогом.</strong> Оригинал паспорта в
+            залог — плохо: если прокат «найдёт» царапину, вернуть паспорт без
+            денег будет сложно. Предлагай кэш-депозит 1,000–3,000 ฿ + копию
+            паспорта.
+          </li>
+          <li>
+            <strong>Скачай приложение Skoot.</strong> Позволяет забронировать
+            байк онлайн, без залога паспорта (только цифровая верификация) и с
+            доставкой к отелю. Чуть дороже, но спокойнее.
+          </li>
+          <li>
+            <strong>Фотографируй байк.</strong> Снимай видео всего корпуса,
+            царапин, пробега и уровня бензина до того, как уедешь. Это спасёт от
+            споров при возврате.
+          </li>
+          <li>
+            <strong>Помни про трафик.</strong> В Бангкоке движение плотное и
+            хаотичное, левостороннее. Для новичка это плохое место для обучения.
+            Возможно, стоит рассмотреть Grab или мотобайк-такси для коротких
+            поездок вместо аренды.
+          </li>
+        </ol>
+      </div>
+
+      <div class="highlight-box">
+        <strong>🛵 Короткий итог:</strong> арендовать байк на улице можно, но
+        без полноценных прав и страховки ты рискуешь не только штрафом, но и
+        огромными медицинскими счетами. Если прав нет — лучше Grab или
+        мотобайк-такси.
+      </div>
+
+      <!-- DON WAI -->
+      <div class="section-title">
+        🛶 Don Wai Floating Market
+        <span class="badge">Первая остановка</span>
+      </div>
+
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Don Wai Floating Market</h3>
+          <span class="distance">30 км от Бангкока · ~40 минут</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">🦆 Утка в соевом соусе</span>
+          <span class="fact">⏰ 7:00–17:00</span>
+          <span class="fact">🚫 Бесплатно</span>
+        </div>
+
+        <p>
+          Рынок на берегу реки <strong>Tha Chin</strong>, рядом с храмом Wat Don
+          Wai. Он возник ещё в начале XX века, во времена короля Рамы VI, как
+          точка торговли для фермеров, выращивавших помело и джекфрут . Лодки
+          привозили урожай, а на берегу постепенно выросли деревянные лавки —
+          некоторые из них стоят здесь больше века.
+        </p>
+        <p>
+          Сегодня это не «плавучий рынок» в классическом смысле — торговля идёт
+          с деревянных прилавков вдоль набережной. Но именно это делает его
+          аутентичным: сюда приходят местные за повседневными продуктами, а не
+          только туристы Don Wai знаменит своим
+          <strong>braised duck (утка в соевом соусе)</strong> — несколько
+          продавцов стоят рядом, предлагая сеты с уткой, лапшой и субпродуктами
+          от <strong>200 ฿</strong>
+        </p>
+
+        <ul>
+          <li>
+            Рынок работает ежедневно, но на выходных больше лавок и живее
+            атмосфера
+          </li>
+          <li>Лучшее время — до полудня, потом становится людно и жарко</li>
+          <li>
+            Можно заказать лодочную прогулку по реке (60–80 ฿, около часа)
+          </li>
+          <li>
+            Приезжать на байке — удобно, есть парковка, но на выходных лучше до
+            10 утра
+          </li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> Soi Rai Khing, Sam Phran, Nakhon Pathom
+          73110 · рядом с Wat Don Wai
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://www.smarttravelers.de/wp-content/uploads/2018/06/Damnoen-Saduak-Floating-Market2.jpg"
+            alt="Плавучий рынок Don Wai"
+          />
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- WAT SAM PHRAN -->
+      <div class="section-title">
+        🐉 Wat Samphran
+        <span class="badge">Вторая остановка</span>
+      </div>
+
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Храм Дракона</h3>
+          <span class="distance">От Don Wai ~15 км · ~25 минут</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">🐉 80 м высота</span>
+          <span class="fact">🏛️ 1985 год</span>
+          <span class="fact">🎗️ Цветочная гирлянда</span>
+        </div>
+
+        <p>
+          Розовая цилиндрическая башня, обвитая гигантским драконом — один из
+          самых неожиданных храмов Таиланда. Он находится в провинции
+          Накхонпатхом, примерно в 40 км к западу от Бангкока . Храм официально
+          зарегистрирован в
+          <strong>1985 году</strong>, но точная дата постройки неизвестна —
+          местные говорят, что строительство заняло около пяти лет.
+        </p>
+        <p>
+          Высота башни — <strong>80 метров</strong>, ровно столько, сколько лет
+          прожил Будда по преданию. Дракон, обвивающий здание, символизирует
+          путь человека от печали к радости, из ада в рай . Внутри тела дракона
+          есть полый туннель и винтовая лестница — можно подняться наверх, хотя
+          некоторые участки обветшали .
+        </p>
+        <p>
+          Внизу, у подножия башни, стоят семь маленьких святилищ — по одному на
+          каждый день недели . А вокруг — парк со странными скульптурами:
+          черепахи, слоны, дельфины, даже гигантский белый кролик.
+        </p>
+
+        <ul>
+          <li>Вход бесплатный, но приветствуется пожертвование (~80 ฿)</li>
+          <li>Одежда — закрытые плечи и колени, это действующий монастырь</li>
+          <li>
+            Сверху открывается вид на окрестности — если сможешь подняться
+          </li>
+          <li>
+            Лестница внутри дракона местами в плохом состоянии — будь осторожна
+          </li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> 92 8, Sam Phran, Sam Phran District, Nakhon
+          Pathom
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0040/5100/9609/files/templo-dragon.jpg?v=1557354915"
+            alt="Храм Дракона Wat Samphran"
+          />
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ПО ПУТИ В АЮТТХАЮ -->
+      <div class="section-title">
+        🛕 По пути в Аюттхаю
+        <span class="badge">опциональная остановка</span>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom: 14px">
+        Если едешь в Аюттхаю, это место логично вписать по дороге — оно
+        находится в провинции Анг Тхонг, примерно на полпути.
+      </div>
+
+      <div class="stop-card">
+        <h4>🙏 Wat Muang</h4>
+        <div class="stop-distance">
+          Провинция Анг Тхонг · ~1.5–2 часа от Бангкока
+        </div>
+        <p>
+          Гигантский сидящий Будда <strong>~93 метра высотой</strong> — один из
+          самых больших в Таиланде Его официальное имя — Phra Phuttha Maha
+          Nawamin Sakyamuni Si Wichian Chai Chan, но местные называют его просто
+          <strong>Luang Pho Yai</strong> («Большой Будда»)
+        </p>
+        <p>
+          История храма уходит в эпоху Аюттхаи: когда-то здесь стоял заброшенный
+          монастырь, разрушенный бирманцами. В <strong>1986 году</strong> монах
+          Луанг Пхо Касем пришёл сюда медитировать, и, по преданию, ему явились
+          два духа-наставника, велевшие восстановить храм Строительство
+          гигантского Будды заняло <strong>16 лет</strong> и завершилось в
+          2007–2008 году .
+        </p>
+        <p>
+          Здесь есть традиция: подойти к статуе и прикоснуться к кончикам
+          пальцев Будды — считается, что это приносит удачу и помогает в делах .
+          А ещё на территории есть зона «ад и рай» — скульптуры, изображающие
+          загробные миры, местами довольно жуткие .
+        </p>
+
+        <ul>
+          <li>
+            Статуя видна издалека — её хорошо фотографировать с рисовых полей
+            вокруг
+          </li>
+          <li>Вход бесплатный, открыто с 06:00 до 18:00</li>
+          <li>
+            На территории есть кондиционированный «Стеклянный храм» — можно
+            передохнуть от жары
+          </li>
+          <li>
+            Логично ставить первой остановкой при выезде из Бангкока в сторону
+            Аюттхаи
+          </li>
+        </ul>
+
+        <div class="stop-address">
+          📍 Huataphan, Wiset Chai Chan District, Ang Thong 14110
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/f3/21/2f/caption.jpg?w=1200"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- АЮТТХАЯ -->
+      <div class="section-title">
+        🏛️ Аюттхая
+        <span class="badge">Финальная цель</span>
+      </div>
+
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Аюттхая</h3>
+          <span class="distance">78 км · 1.5–2 часа</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">🛣️ Highway 1</span>
+          <span class="fact">🏍️ 150–160 кубов</span>
+          <span class="fact">🌅 Выезд до 7 утра</span>
+        </div>
+
+        <p>
+          Древняя столица Сиама, разрушенная бирманцами в 1767 году. Руины
+          раскинулись на искусственном острове, образованном двумя реками и
+          каналом. В 1991 году исторический парк внесён в список Всемирного
+          наследия ЮНЕСКО.
+        </p>
+        <p>
+          Главные точки: <strong>Ват Махатхат</strong> (голова Будды в корнях
+          дерева), <strong>Ват Пхра Си Санпет</strong> (три ступы — символ
+          города) и <strong>Ват Чайваттханарам</strong> (у реки, самый
+          фотогеничный на закате). Дорога идёт по Highway 1 (Phahonyothin) —
+          обычная трасса, без автомагистралей.
+        </p>
+
+        <ul>
+          <li>Нужен байк 150–160 кубов (Yamaha NMAX или Honda PCX)</li>
+          <li>Выезжать лучше до 7 утра, чтобы проскочить пробки</li>
+          <li>Можно заложить целый день, не торопясь</li>
+          <li>На закате — Ват Чайваттханарам у реки</li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> Ayutthaya, провинция Аюттхая (от Бангкока
+          на север по Highway 1)
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://a1.drive-data.ru/VI22QLCo9QzirE01ApnF_r2hg6o-1920.jpg"
+            alt="Руины Аюттхаи"
+          />
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ПРЕДУПРЕЖДЕНИЕ -->
+      <div class="warn-box">
+        <strong>⚠️ Выезд за пределы провинции.</strong> Все места — за пределами
+        Бангкока (Накхонпатхом, Анг Тхонг, Аюттхая). Не все прокаты разрешают
+        выезжать за город — уточняй заранее. На трассах (Rama II Road, Highway
+        32, Highway 35) много грузовиков и ремонтных участков —
+        <span class="highlight-word">это не дорога для новичка</span>.
+      </div>
+
+      <hr />
+
+      <!-- ЧЕК-ЛИСТ -->
+      <div class="section-title">
+        📋 Перед выездом
+        <span class="badge">проверь байк</span>
+      </div>
+
+      <div class="checklist">
+        <h4>🛵 Чек-лист</h4>
+        <ol>
+          <li>
+            <strong>Тормоза</strong> — передний и задний, оба должны работать
+            чётко
+          </li>
+          <li>
+            <strong>Свет и поворотники</strong> — обязательно, на трассе без них
+            никак
+          </li>
+          <li><strong>Зеркала</strong> — оба на месте и отрегулированы</li>
+          <li>
+            <strong>Бензин</strong> — заправься до полного перед выездом из
+            города
+          </li>
+          <li>
+            <strong>Шлем</strong> — и водитель, и пассажир, это закон с июня
+            2025
+          </li>
+          <li>
+            <strong>Фото байка</strong> — сними видео корпуса, царапин и пробега
+            до выезда
+          </li>
+        </ol>
+      </div>
+
+      <div class="highlight-box">
+        <strong>💡 Совет:</strong> если с байком пока на «ты» — лучше
+        рассмотреть Grab или мотобайк-такси. А байк взять на что-то более
+        спокойное.
+      </div>
+
+      <!-- НАЗАД -->
+      <div class="back-block">
+        <div class="back-text">
+          Вернуться к прилёту
+          <small>ARL, тарифы и первый вечер</small>
+        </div>
+        <a href="index.html">← Прилёт</a>
+      </div>
+
+      <!-- ФУТЕР -->
+      <div class="footer-note">
+        <strong>🗓️ 21–24 октября · Бангкок</strong><br />
+        <small>Байк, Don Wai, Wat Samphran, Wat Muang и Аюттхая</small>
+      </div>
+    </div>
+  </body>
+</html>

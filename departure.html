@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бангкок | День вылета</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          160deg,
+          #fff4e6 0%,
+          #ffe9d6 40%,
+          #ffd9b8 100%
+        );
+        background-attachment: fixed;
+        color: #2b1d12;
+        padding: 24px 16px;
+        line-height: 1.55;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #fffdf9;
+        border-radius: 32px;
+        box-shadow: 0 24px 70px rgba(196, 120, 60, 0.18);
+        padding: 32px 28px;
+        border: 1px solid #ffe3c9;
+      }
+
+      /* ==== ШАПКА ==== */
+      .main-title {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: #2b1d12;
+      }
+      .main-title .flag {
+        font-size: 26px;
+      }
+      .main-title span {
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 3px 16px;
+        border-radius: 40px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .subhead {
+        font-size: 15px;
+        color: #7a5c44;
+        margin-top: 10px;
+        border-left: 4px solid #ffb347;
+        padding: 8px 16px;
+        background: #fff6ec;
+        border-radius: 0 14px 14px 0;
+      }
+
+      /* ==== НАВИГАЦИЯ ==== */
+      .nav-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .nav-link {
+        display: inline-block;
+        background: #fff;
+        color: #b5651d;
+        padding: 10px 22px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        border: 2px solid #ffd9b8;
+        transition: all 0.18s ease;
+      }
+      .nav-link:hover {
+        background: #ffb347;
+        color: #fff;
+        border-color: #ffb347;
+        transform: translateY(-2px);
+      }
+
+      hr {
+        border: none;
+        border-top: 2px dashed #ffe0c4;
+        margin: 30px 0 18px 0;
+      }
+
+      .section-title {
+        font-size: 21px;
+        font-weight: 700;
+        margin: 30px 0 14px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #2b1d12;
+      }
+      .section-title .badge {
+        background: #fff0df;
+        color: #b5651d;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 14px;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      /* ==== КАРТОЧКА РЕЙСА ==== */
+      .flight-card {
+        background: linear-gradient(135deg, #fff7ef 0%, #ffeeda 100%);
+        border-radius: 22px;
+        padding: 22px 26px;
+        border: 1px solid #ffe0c4;
+        box-shadow: 0 6px 24px rgba(255, 160, 80, 0.1);
+        margin-bottom: 20px;
+      }
+      .flight-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 40px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .flight-point {
+        flex: 1 1 180px;
+      }
+      .flight-point .label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #b5651d;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      .flight-point .time {
+        font-size: 26px;
+        font-weight: 800;
+        color: #2b1d12;
+        line-height: 1.1;
+      }
+      .flight-point .place {
+        font-size: 14px;
+        color: #7a5c44;
+        margin-top: 2px;
+      }
+      .flight-middle {
+        text-align: center;
+        color: #ff8c42;
+        font-size: 13px;
+        font-weight: 600;
+        flex: 0 0 auto;
+      }
+      .flight-middle .plane {
+        font-size: 22px;
+        display: block;
+        margin-bottom: 2px;
+      }
+      .flight-meta {
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px dashed #ffd9b8;
+        font-size: 14px;
+        color: #7a5c44;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+      }
+      .flight-meta strong {
+        color: #2b1d12;
+      }
+
+      /* ==== КАРТОЧКА МЕСТА ==== */
+      .trip-card {
+        background: linear-gradient(135deg, #fff7ef 0%, #ffeeda 100%);
+        border-radius: 22px;
+        padding: 24px 26px;
+        border: 1px solid #ffe0c4;
+        box-shadow: 0 6px 24px rgba(255, 160, 80, 0.1);
+        margin-bottom: 20px;
+      }
+      .trip-card .trip-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 16px;
+        margin-bottom: 10px;
+      }
+      .trip-card .trip-head h3 {
+        font-size: 22px;
+        font-weight: 800;
+        color: #2b1d12;
+      }
+      .trip-card .trip-head .distance {
+        font-size: 13px;
+        font-weight: 700;
+        color: #ff8c42;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .trip-card .trip-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin: 10px 0 14px 0;
+        font-size: 13px;
+        color: #7a5c44;
+      }
+      .trip-card .trip-facts .fact {
+        background: #fffaf4;
+        border: 1px solid #ffe0c4;
+        border-radius: 40px;
+        padding: 3px 14px;
+        font-weight: 600;
+      }
+      .trip-card p {
+        font-size: 14px;
+        color: #4a3625;
+        margin-bottom: 10px;
+      }
+
+      .trip-card ul {
+        list-style: none;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+      .trip-card ul li {
+        padding: 4px 0 4px 22px;
+        position: relative;
+        color: #4a3625;
+      }
+      .trip-card ul li::before {
+        content: "🐚";
+        position: absolute;
+        left: 0;
+        font-size: 12px;
+      }
+
+      .address-box {
+        background: #fffaf4;
+        border: 1px dashed #ffd9b8;
+        border-radius: 14px;
+        padding: 10px 16px;
+        margin-top: 12px;
+        font-size: 13px;
+        color: #7a5c44;
+      }
+      .address-box strong {
+        color: #2b1d12;
+      }
+
+      /* ==== КАРТИНКИ ==== */
+      .trip-image {
+        margin: 14px 0 16px 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #ffe0c4;
+        box-shadow: 0 6px 20px rgba(255, 160, 80, 0.15);
+      }
+      .trip-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      /* ==== КАК ДОБРАТЬСЯ ==== */
+      .move-box {
+        background: #fffaf4;
+        border-radius: 16px;
+        padding: 14px 18px;
+        margin: 12px 0 6px 0;
+        border: 1px solid #ffe0c4;
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        align-items: center;
+      }
+      .move-box .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+      .move-box .dot.bts {
+        background: #6cc24a;
+      }
+      .move-box .dot.mrt {
+        background: #1e4f9c;
+      }
+      .move-box .dot.river {
+        background: #00a0e9;
+      }
+      .move-box .dot.walk {
+        background: #ff8c42;
+      }
+      .move-box .route {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .move-box .desc {
+        color: #7a5c44;
+      }
+
+      /* ==== ТАЙМИНГ ==== */
+      .timeline {
+        background: #fffaf4;
+        border-radius: 18px;
+        padding: 18px 22px;
+        margin: 14px 0 6px 0;
+        border: 1px solid #ffe0c4;
+      }
+      .timeline-item {
+        display: flex;
+        gap: 16px;
+        padding: 10px 0;
+        border-bottom: 1px dashed #ffe0c4;
+      }
+      .timeline-item:last-child {
+        border-bottom: none;
+      }
+      .timeline-item .tl-time {
+        flex: 0 0 80px;
+        font-weight: 700;
+        color: #ff8c42;
+        font-size: 15px;
+      }
+      .timeline-item .tl-text {
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .timeline-item .tl-text strong {
+        color: #2b1d12;
+      }
+
+      /* ==== СОВЕТЫ ==== */
+      .highlight-box {
+        background: linear-gradient(135deg, #fff0df, #ffe3c9);
+        border-radius: 20px;
+        padding: 16px 22px;
+        margin: 18px 0 8px 0;
+        border-left: 6px solid #ff8c42;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .highlight-box strong {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .highlight-box .highlight-word {
+        background: #ffffffcc;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      .warn-box {
+        background: linear-gradient(135deg, #fff0df, #ffe3c9);
+        border-radius: 20px;
+        padding: 16px 22px;
+        margin: 18px 0 8px 0;
+        border-left: 6px solid #e63946;
+        font-size: 14px;
+        color: #4a3625;
+      }
+      .warn-box strong {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+
+      /* ==== ФУТЕР ==== */
+      .footer-note {
+        margin-top: 34px;
+        font-size: 14px;
+        color: #8a6a50;
+        border-top: 2px dashed #ffe0c4;
+        padding-top: 20px;
+        text-align: center;
+      }
+      .footer-note strong {
+        color: #b5651d;
+      }
+      .footer-note small {
+        display: block;
+        font-size: 13px;
+        color: #a08872;
+        margin-top: 4px;
+      }
+
+      .back-block {
+        background: linear-gradient(135deg, #ffb347, #ff8c42);
+        color: #fff;
+        border-radius: 24px;
+        padding: 20px 26px;
+        margin: 24px 0 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+      }
+      .back-block .back-text {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .back-block .back-text small {
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+        opacity: 0.9;
+        margin-top: 2px;
+      }
+      .back-block a {
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        border: 2px solid #fff;
+        padding: 10px 24px;
+        border-radius: 40px;
+        transition: all 0.18s ease;
+        white-space: nowrap;
+      }
+      .back-block a:hover {
+        background: #fff;
+        color: #ff8c42;
+      }
+
+      @media (max-width: 640px) {
+        .trip-card .trip-head h3 {
+          font-size: 19px;
+        }
+        .flight-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .flight-middle {
+          display: none;
+        }
+        .timeline-item {
+          flex-direction: column;
+          gap: 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- ШАПКА -->
+      <div>
+        <div class="main-title">
+          <span class="flag">✈️</span> День вылета
+          <span>24 октября</span>
+        </div>
+        <div class="subhead">
+          VZ 308 · BKK → HKT · вылет 19:50 · быть в аэропорту к 16:50
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <a href="index.html" class="nav-link">✈️ Прилёт</a>
+        <a href="city.html" class="nav-link">🚶 День в городе</a>
+        <a href="bike.html" class="nav-link">🛵 Байк и вылазки</a>
+      </div>
+
+      <hr />
+
+      <!-- РЕЙС -->
+      <div class="section-title">
+        ✈️ Ваш рейс
+        <span class="badge">Thai Vietjet Air</span>
+      </div>
+
+      <div class="flight-card">
+        <div class="flight-row">
+          <div class="flight-point">
+            <div class="label">Вылет</div>
+            <div class="time">19:50</div>
+            <div class="place">Суварнабхуми (BKK)</div>
+          </div>
+          <div class="flight-middle">
+            <span class="plane">✈️</span>
+            1 ч 35 м · без пересадок
+          </div>
+          <div class="flight-point">
+            <div class="label">Прилёт</div>
+            <div class="time">21:25</div>
+            <div class="place">Пхукет (HKT) · внутренний терминал</div>
+          </div>
+        </div>
+        <div class="flight-meta">
+          <div>📅 <strong>24 октября 2026</strong></div>
+          <div>🛫 <strong>VZ 308</strong></div>
+          <div>🎫 Бронь: <strong>M9T5MF</strong></div>
+          <div>🎒 Ручная кладь: <strong>7 кг</strong> (36×56×23 см)</div>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <strong>⚠️ Важно:</strong> в аэропорту нужно быть
+        <span class="highlight-word">не позже 16:50</span> — за 3 часа до
+        вылета. Внутренний рейс, но регистрация и досмотр занимают время.
+      </div>
+
+      <hr />
+
+      <hr />
+
+      <!-- TALAT NOI -->
+      <div class="section-title">
+        🎨 Утро — Talat Noi и Song Wat
+        <span class="badge">2–3 часа спокойно</span>
+      </div>
+
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Talat Noi</h3>
+          <span class="distance">MRT Hua Lamphong · пешком</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">🎨 Стрит-арт</span>
+          <span class="fact">☕ Кофейни</span>
+          <span class="fact">🚶 Пешком</span>
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://media.s7cdn.online/api/v1/img/resize/1072/*/webp/media.s7cdn.online/S7PCabinService/media/e5ef0827-2b45-4848-a1e0-e3d4925fd9c7?ns=s7Media&v=1&iopts=q:75"
+            alt="Talat Noi Бангкок"
+          />
+        </div>
+
+        <p>
+          Старый китайско-португальский квартал за Чайнатауном. Узкие переулки,
+          мастерские, где чинят мотоциклы, стрит-арт на стенах и кофейни в
+          старых домах. Не туристическое место — здесь просто живут и работают.
+        </p>
+
+        <ul>
+          <li>MRT до Hua Lamphong, потом пешком ~10 минут</li>
+          <li>Лучше утром, пока не жарко и не людно</li>
+          <li>Не пропусти стрит-арт на стенах старых домов</li>
+        </ul>
+
+        <div class="move-box">
+          <span class="dot walk"></span>
+          <span class="route">До Song Wat — пешком</span>
+          <span class="desc">~5–10 минут вдоль реки</span>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Song Wat</h3>
+          <span class="distance">Рядом с Talat Noi</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">🖼️ Галереи</span>
+          <span class="fact">☕ Кафе</span>
+          <span class="fact">🏚️ Старые дома</span>
+        </div>
+
+        <p>
+          Соседняя улица со старыми торговыми домами, которые стали галереями,
+          кафе и небольшими магазинами. Меньше суеты, чем в Чайнатауне, больше
+          воздуха. Хватит часа, чтобы не спеша пройти.
+        </p>
+
+        <div class="move-box">
+          <span class="dot walk"></span>
+          <span class="route">До Чайнатауна — пешком</span>
+          <span class="desc">~10–15 минут до Yaowarat</span>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ЧАЙНАТАУН -->
+      <div class="section-title">
+        🍜 Обед — Чайнатаун (опционально)
+        <span class="badge">если успеваешь</span>
+      </div>
+
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>Чайнатаун (Yaowarat)</h3>
+          <span class="distance">Днём · обед</span>
+        </div>
+
+        <div class="trip-facts">
+          <span class="fact">🍜 Уличная еда</span>
+          <span class="fact">🌃 Неон вечером</span>
+          <span class="fact">💰 Бесплатно</span>
+        </div>
+
+        <div class="trip-image">
+          <img
+            src="https://posta-magazine.ru/wp-content/uploads/old/images/stories/flexicontent2/1_Singapore_posta-magazine.jpg"
+            alt="Чайнатаун Бангкок"
+          />
+        </div>
+
+        <p>
+          Вечером Yaowarat — море неона и толп. Днём спокойнее, но еда всё равно
+          есть. Если хочешь попробовать уличную кухню перед вылетом — загляни
+          сюда на обед, но <strong>без фанатизма</strong>: не стоит рисковать с
+          желудком перед полётом.
+        </p>
+
+        <ul>
+          <li>Приходить к 12:00–13:00, пока не жарко</li>
+          <li>Пробовать морепродукты, лапшу, но осторожно с остротой</li>
+          <li>После обеда — сразу в отель за вещами</li>
+        </ul>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> Yaowarat Rd, Samphanthawong, Bangkok
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- КАК В АЭРОПОРТ -->
+      <div class="section-title">
+        🚆 Как добраться до аэропорта
+        <span class="badge">BKK · Suvarnabhumi</span>
+      </div>
+
+      <div class="move-box" style="margin-bottom: 12px">
+        <span class="dot river"></span>
+        <span class="route">Airport Rail Link (ARL)</span>
+        <span class="desc"
+          >от Phaya Thai до Suvarnabhumi · 30 минут · 45 ฿</span
+        >
+      </div>
+
+      <div class="highlight-box">
+        <strong>💡 ARL — самый надёжный вариант.</strong> Поезд не стоит в
+        пробках, ходит каждые 10–15 минут с 05:30 до 24:00. От отеля до Phaya
+        Thai — на BTS или Grab, потом пересадка на ARL. Итого от отеля до
+        аэропорта — <span class="highlight-word">~1–1.5 часа</span> с запасом.
+      </div>
+
+      <hr />
+
+      <!-- НАЗАД -->
+      <div class="back-block">
+        <div class="back-text">
+          Вернуться к прилёту
+          <small>ARL, тарифы и первый вечер</small>
+        </div>
+        <a href="index.html">← Прилёт</a>
+      </div>
+
+      <!-- ФУТЕР -->
+      <div class="footer-note">
+        <strong>🗓️ 24 октября · Бангкок → Пхукет</strong><br />
+        <small>VZ 308 · вылет 19:50 · быть в BKK к 16:50</small>
+      </div>
+    </div>
+  </body>
+</html>
