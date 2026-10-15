@@ -67,6 +67,45 @@
         text-transform: uppercase;
       }
 
+      /* ==== КАК ДОБРАТЬСЯ ==== */
+      .move-box {
+        background: #fffaf4;
+        border-radius: 16px;
+        padding: 14px 18px;
+        margin: 12px 0 6px 0;
+        border: 1px solid #ffe0c4;
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        align-items: center;
+      }
+      .move-box .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+      .move-box .dot.taxi {
+        background: #f4a261;
+      }
+      .move-box .dot.bus {
+        background: #e76f51;
+      }
+      .move-box .dot.grab {
+        background: #2a9d8f;
+      }
+      .move-box .dot.river {
+        background: #00a0e9;
+      }
+      .move-box .route {
+        font-weight: 700;
+        color: #2b1d12;
+      }
+      .move-box .desc {
+        color: #7a5c44;
+      }
+
       .subhead {
         font-size: 15px;
         color: #7a5c44;
@@ -490,44 +529,29 @@
 
       <hr />
 
-      <!-- ТАРИФЫ -->
-      <div class="section-title">
-        💰 Тарифы
-        <span class="badge">2026</span>
-      </div>
-
-      <div class="fare-grid">
-        <div class="fare-card">
-          <div class="station">До Makkasan</div>
-          <div class="price">35 ฿</div>
-        </div>
-        <div class="fare-card">
-          <div class="station">До Phaya Thai</div>
-          <div class="price">45 ฿</div>
-        </div>
-      </div>
-
       <div class="transport-option" style="margin-top: 12px">
         <h4>💳 Оплата</h4>
         <ul>
           <li>Наличные в автоматах (монеты и мелкие купюры)</li>
-          <li>Карта <strong>Rabbit</strong> — покупается в зоне BTS</li>
-          <li>
-            <strong>Бесконтактные банковские карты</strong> Visa, Mastercard,
-            JCB, UnionPay — приложить к турникету
-          </li>
         </ul>
       </div>
 
-      <hr />
-
-      <div class="highlight-box">
-        <strong>⚠️ Важно:</strong> последний поезд ARL отправляется примерно к
-        <span class="highlight-word">полуночи</span>. Если рейс задержат и ты
-        выйдешь из терминала после 23:30 — придётся брать такси или Grab/Bolt.
+      <!-- ОТЕЛЬ -->
+      <div class="section-title">
+        🏨 Ваш отель
+        <span class="badge">Khaosan · Phra Nakhon</span>
       </div>
 
-      <hr />
+      <div class="trip-card">
+        <div class="trip-head">
+          <h3>4 Monkeys Hotel (SHA Extra Plus+)</h3>
+        </div>
+
+        <div class="address-box">
+          <strong>📍 Адрес:</strong> 39 Soi Samsen 6, Ban Panthom Pranakorn,
+          Phra Nakhon, Bangkok 10200
+        </div>
+      </div>
 
       <!-- ПЕРВЫЙ ВЕЧЕР -->
       <div class="section-title">
